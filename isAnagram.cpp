@@ -3,29 +3,30 @@
 #include<vector>
 using namespace std;
 
+//  https://leetcode.cn/problems/valid-anagram/description/
+
 class Solution {
 public:
     bool isAnagram(string s, string t) {
-        if(s.length() != t.length()){
+        if (s.length() != t.length()) {
             return false;
         }
 
         vector<int> count(26,0);
 
-        for(auto i : s){
+        for (auto i : s) {
             count[i - 'a']++;
         }
 
-        for(auto i : t){
+        for (auto i : t) {
             count[i - 'a']--;
         }
-
-        for(auto i : count){
-            if(i != 0){
+        
+        for (auto i : count) {
+            if (i != 0) {
                 return false;
             }
         }
-
         return true;
     }
 };
